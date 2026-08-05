@@ -18,159 +18,650 @@
 
     body {
       margin: 0;
-      padding: 30px;
-      font-family: Arial, sans-serif;
-      background: #f3f4f6;
-      color: #111827;
+      background: #f4f6f8;
+      color: #172033;
+      font-family:
+        Inter,
+        Arial,
+        sans-serif;
     }
 
-    .dashboard {
-      max-width: 1000px;
-      margin: auto;
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 32px auto;
     }
 
     .header {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 28px;
+      background: #172033;
+      color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(23, 32, 51, 0.15);
     }
 
-    .grid {
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .header p {
+      margin: 0;
+      color: #cbd3df;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button,
+    select,
+    input {
+      font: inherit;
+    }
+
+    .button {
+      border: 0;
+      border-radius: 9px;
+      padding: 11px 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .button-primary {
+      background: #ffffff;
+      color: #172033;
+    }
+
+    .button-secondary {
+      background: #2c3850;
+      color: white;
+    }
+
+    .kpi-grid {
       display: grid;
-      grid-template-columns:
-        repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin: 20px 0;
     }
 
-    .card {
+    .kpi-card {
       background: white;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e5e9ef;
+      border-radius: 13px;
+      box-shadow: 0 4px 14px rgba(23, 32, 51, 0.05);
     }
 
-    .card h2 {
-      margin-top: 0;
+    .kpi-label {
+      margin-bottom: 8px;
+      color: #738096;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .kpi-value {
+      font-size: 27px;
+      font-weight: 800;
+    }
+
+    .low-value {
+      color: #c62828;
+    }
+
+    .monitor-value {
+      color: #b66b00;
+    }
+
+    .healthy-value {
+      color: #167548;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid #e5e9ef;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(23, 32, 51, 0.05);
+      overflow: hidden;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+      padding: 18px;
+      border-bottom: 1px solid #e5e9ef;
+    }
+
+    .search {
+      width: min(420px, 100%);
+      padding: 11px 13px;
+      border: 1px solid #d8dee8;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    .search:focus,
+    select:focus {
+      border-color: #5d6f91;
+    }
+
+    select {
+      padding: 11px 13px;
+      border: 1px solid #d8dee8;
+      border-radius: 8px;
+      background: white;
+    }
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    th {
+      padding: 13px 16px;
+      background: #f8f9fb;
+      color: #657188;
+      font-size: 12px;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    td {
+      padding: 15px 16px;
+      border-top: 1px solid #edf0f4;
+    }
+
+    tbody tr:hover {
+      background: #fafbfd;
+    }
+
+    .product-name {
+      font-weight: 700;
+    }
+
+    .mobile-sku {
+      display: none;
+      margin-top: 4px;
+      color: #738096;
+      font-size: 12px;
+    }
+
+    .number {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .status {
+      display: inline-block;
+      min-width: 100px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
     }
 
     .healthy {
-      color: green;
-      font-weight: bold;
+      background: #e4f5ec;
+      color: #167548;
     }
 
     .monitor {
-      color: darkorange;
-      font-weight: bold;
+      background: #fff0d6;
+      color: #9a5c00;
     }
 
     .low {
-      color: red;
-      font-weight: bold;
+      background: #fde7e7;
+      color: #bd2525;
     }
 
-    .updated {
-      margin-top: 25px;
-      color: #6b7280;
-      font-size: 14px;
+    .neutral {
+      background: #edf0f4;
+      color: #657188;
+    }
+
+    .empty-message {
+      display: none;
+      padding: 40px;
+      color: #738096;
+      text-align: center;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: #738096;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .header {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        width: min(100% - 20px, 1180px);
+        margin: 10px auto;
+      }
+
+      .header {
+        padding: 21px;
+        border-radius: 12px;
+      }
+
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .toolbar {
+        flex-direction: column;
+      }
+
+      .search,
+      select {
+        width: 100%;
+      }
+
+      .mobile-sku {
+        display: block;
+      }
+
+      th:nth-child(2),
+      td:nth-child(2) {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="dashboard">
-    <div class="header">
-      <h1>My Inventory Dashboard</h1>
-
-      <p>
-        Generated from Google Sheets using Google Apps Script.
-      </p>
-    </div>
-
-    <div class="grid">
-      
-      <div class="card">
-        <h2>Energy Drink Original</h2>
-
-        <p><strong>SKU:</strong> ED-001</p>
+  <main class="page">
+    <header class="header">
+      <div>
+        <h1>Inventory Dashboard</h1>
 
         <p>
-          <strong>Available Stock:</strong>
-          100 units
-        </p>
-
-        <p>
-          <strong>Weekly Sales:</strong>
-          20 units
-        </p>
-
-        <p>
-          <strong>Weeks Left:</strong>
-          5.0
-        </p>
-
-        <p class="monitor">
-          Status: Monitor
+          Live inventory health and stock coverage report
         </p>
       </div>
-    
-      <div class="card">
-        <h2>Energy Drink Mango</h2>
 
-        <p><strong>SKU:</strong> ED-002</p>
+      <div class="header-actions">
+        <button
+          class="button button-primary"
+          onclick="downloadCSV()"
+        >
+          Download CSV
+        </button>
 
-        <p>
-          <strong>Available Stock:</strong>
-          45 units
-        </p>
+        <button
+          class="button button-secondary"
+          onclick="downloadJSON()"
+        >
+          Download JSON
+        </button>
+      </div>
+    </header>
 
-        <p>
-          <strong>Weekly Sales:</strong>
-          15 units
-        </p>
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total SKUs</div>
+        <div class="kpi-value">3</div>
+      </div>
 
-        <p>
-          <strong>Weeks Left:</strong>
+      <div class="kpi-card">
+        <div class="kpi-label">Available Stock</div>
+
+        <div class="kpi-value">
+          265
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Low Stock</div>
+
+        <div class="kpi-value low-value">
+          1
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Monitor</div>
+
+        <div class="kpi-value monitor-value">
+          1
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Healthy</div>
+
+        <div class="kpi-value healthy-value">
+          1
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <input
+          id="searchInput"
+          class="search"
+          type="search"
+          placeholder="Search product or SKU..."
+          oninput="filterTable()"
+        >
+
+        <select
+          id="statusFilter"
+          onchange="filterTable()"
+        >
+          <option value="">All statuses</option>
+          <option value="Low Stock">Low Stock</option>
+          <option value="Monitor">Monitor</option>
+          <option value="Healthy">Healthy</option>
+          <option value="No Sales Data">No Sales Data</option>
+        </select>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>SKU</th>
+              <th class="number">Available</th>
+              <th class="number">Weekly Sales</th>
+              <th class="number">Weeks Left</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody id="inventoryTable">
+            
+      <tr
+        data-product="energy drink mango"
+        data-sku="ed-002"
+        data-status="Low Stock"
+      >
+        <td>
+          <div class="product-name">
+            Energy Drink Mango
+          </div>
+
+          <div class="mobile-sku">
+            ED-002
+          </div>
+        </td>
+
+        <td>ED-002</td>
+
+        <td class="number">
+          45
+        </td>
+
+        <td class="number">
+          15
+        </td>
+
+        <td class="number">
           3.0
-        </p>
+        </td>
 
-        <p class="low">
-          Status: Low Stock
-        </p>
-      </div>
+        <td>
+          <span class="status low">
+            Low Stock
+          </span>
+        </td>
+      </tr>
     
-      <div class="card">
-        <h2>Energy Drink Berry</h2>
+      <tr
+        data-product="energy drink original"
+        data-sku="ed-001"
+        data-status="Monitor"
+      >
+        <td>
+          <div class="product-name">
+            Energy Drink Original
+          </div>
 
-        <p><strong>SKU:</strong> ED-003</p>
+          <div class="mobile-sku">
+            ED-001
+          </div>
+        </td>
 
-        <p>
-          <strong>Available Stock:</strong>
-          120 units
-        </p>
+        <td>ED-001</td>
 
-        <p>
-          <strong>Weekly Sales:</strong>
-          10 units
-        </p>
+        <td class="number">
+          100
+        </td>
 
-        <p>
-          <strong>Weeks Left:</strong>
+        <td class="number">
+          20
+        </td>
+
+        <td class="number">
+          5.0
+        </td>
+
+        <td>
+          <span class="status monitor">
+            Monitor
+          </span>
+        </td>
+      </tr>
+    
+      <tr
+        data-product="energy drink berry"
+        data-sku="ed-003"
+        data-status="Healthy"
+      >
+        <td>
+          <div class="product-name">
+            Energy Drink Berry
+          </div>
+
+          <div class="mobile-sku">
+            ED-003
+          </div>
+        </td>
+
+        <td>ED-003</td>
+
+        <td class="number">
+          120
+        </td>
+
+        <td class="number">
+          10
+        </td>
+
+        <td class="number">
           12.0
-        </p>
+        </td>
 
-        <p class="healthy">
-          Status: Healthy
-        </p>
-      </div>
+        <td>
+          <span class="status healthy">
+            Healthy
+          </span>
+        </td>
+      </tr>
     
-    </div>
+          </tbody>
+        </table>
+      </div>
 
-    <p class="updated">
-      Last updated: Tue Aug 04 2026 18:36:10 GMT-0700 (Pacific Daylight Time)
-    </p>
-  </div>
+      <div
+        id="emptyMessage"
+        class="empty-message"
+      >
+        No products match your search.
+      </div>
+    </section>
+
+    <footer class="footer">
+      45 total weekly units sold
+      ? Last updated August 4, 2026 6:44 PM
+    </footer>
+  </main>
+
+  <script>
+    const inventoryData = [{"productName":"Energy Drink Mango","sku":"ED-002","availableStock":45,"weeklySales":15,"weeksLeft":3,"status":"Low Stock","statusClass":"low"},{"productName":"Energy Drink Original","sku":"ED-001","availableStock":100,"weeklySales":20,"weeksLeft":5,"status":"Monitor","statusClass":"monitor"},{"productName":"Energy Drink Berry","sku":"ED-003","availableStock":120,"weeklySales":10,"weeksLeft":12,"status":"Healthy","statusClass":"healthy"}];
+
+    function filterTable() {
+      const searchValue = document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+      const selectedStatus = document
+        .getElementById("statusFilter")
+        .value;
+
+      const rows = document.querySelectorAll(
+        "#inventoryTable tr"
+      );
+
+      let visibleCount = 0;
+
+      rows.forEach(function(row) {
+        const product = row.dataset.product || "";
+        const sku = row.dataset.sku || "";
+        const status = row.dataset.status || "";
+
+        const matchesSearch =
+          product.includes(searchValue) ||
+          sku.includes(searchValue);
+
+        const matchesStatus =
+          !selectedStatus ||
+          status === selectedStatus;
+
+        const shouldShow =
+          matchesSearch &&
+          matchesStatus;
+
+        row.style.display = shouldShow ? "" : "none";
+
+        if (shouldShow) {
+          visibleCount++;
+        }
+      });
+
+      document.getElementById("emptyMessage").style.display =
+        visibleCount === 0 ? "block" : "none";
+    }
+
+    function escapeCsvValue(value) {
+      const text = String(value ?? "");
+
+      return '"' +
+        text.replace(/"/g, '""') +
+        '"';
+    }
+
+    function downloadCSV() {
+      const headers = [
+        "Product",
+        "SKU",
+        "Available Stock",
+        "Weekly Sales",
+        "Weeks Left",
+        "Status"
+      ];
+
+      const csvRows = [headers];
+
+      inventoryData.forEach(function(product) {
+        csvRows.push([
+          product.productName,
+          product.sku,
+          product.availableStock,
+          product.weeklySales,
+          product.weeksLeft,
+          product.status
+        ]);
+      });
+
+      const csvContent = csvRows
+        .map(function(row) {
+          return row.map(escapeCsvValue).join(",");
+        })
+        .join("\n");
+
+      const blob = new Blob(
+        ["\uFEFF" + csvContent],
+        {
+          type: "text/csv;charset=utf-8;"
+        }
+      );
+
+      downloadFile(
+        blob,
+        "inventory-report.csv"
+      );
+    }
+
+    function downloadJSON() {
+      const jsonContent = JSON.stringify(
+        inventoryData,
+        null,
+        2
+      );
+
+      const blob = new Blob(
+        [jsonContent],
+        {
+          type: "application/json"
+        }
+      );
+
+      downloadFile(
+        blob,
+        "inventory-report.json"
+      );
+    }
+
+    function downloadFile(blob, fileName) {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = fileName;
+
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      URL.revokeObjectURL(url);
+    }
+  </script>
 </body>
 </html>
   
