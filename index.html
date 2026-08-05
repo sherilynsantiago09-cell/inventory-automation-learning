@@ -3,59 +3,173 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Inventory Dashboard</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
+      margin: 0;
       padding: 30px;
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
     }
 
     .dashboard {
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
     }
 
-    h1 {
-      color: #1f2937;
+    .header {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
     }
 
     .card {
-      background: #eef2ff;
-      padding: 16px;
-      margin-top: 15px;
-      border-radius: 8px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      margin-top: 0;
     }
 
     .healthy {
       color: green;
       font-weight: bold;
     }
+
+    .monitor {
+      color: darkorange;
+      font-weight: bold;
+    }
+
+    .low {
+      color: red;
+      font-weight: bold;
+    }
+
+    .updated {
+      margin-top: 25px;
+      color: #6b7280;
+      font-size: 14px;
+    }
   </style>
 </head>
 
 <body>
   <div class="dashboard">
-    <h1>My Inventory Dashboard</h1>
+    <div class="header">
+      <h1>My Inventory Dashboard</h1>
 
-    <p>Generated automatically by Google Apps Script.</p>
-
-    <div class="card">
-      <h2>Sample Product</h2>
-      <p>Available Stock: 100 units</p>
-      <p>Weekly Sales: 20 units</p>
-      <p>Weeks Left: 5</p>
-      <p class="healthy">Status: Healthy</p>
+      <p>
+        Generated from Google Sheets using Google Apps Script.
+      </p>
     </div>
 
-    <p>Last updated: Tue Aug 04 2026 18:13:42 GMT-0700 (Pacific Daylight Time)</p>
+    <div class="grid">
+      
+      <div class="card">
+        <h2>Energy Drink Original</h2>
+
+        <p><strong>SKU:</strong> ED-001</p>
+
+        <p>
+          <strong>Available Stock:</strong>
+          100 units
+        </p>
+
+        <p>
+          <strong>Weekly Sales:</strong>
+          20 units
+        </p>
+
+        <p>
+          <strong>Weeks Left:</strong>
+          5.0
+        </p>
+
+        <p class="monitor">
+          Status: Monitor
+        </p>
+      </div>
+    
+      <div class="card">
+        <h2>Energy Drink Mango</h2>
+
+        <p><strong>SKU:</strong> ED-002</p>
+
+        <p>
+          <strong>Available Stock:</strong>
+          45 units
+        </p>
+
+        <p>
+          <strong>Weekly Sales:</strong>
+          15 units
+        </p>
+
+        <p>
+          <strong>Weeks Left:</strong>
+          3.0
+        </p>
+
+        <p class="low">
+          Status: Low Stock
+        </p>
+      </div>
+    
+      <div class="card">
+        <h2>Energy Drink Berry</h2>
+
+        <p><strong>SKU:</strong> ED-003</p>
+
+        <p>
+          <strong>Available Stock:</strong>
+          120 units
+        </p>
+
+        <p>
+          <strong>Weekly Sales:</strong>
+          10 units
+        </p>
+
+        <p>
+          <strong>Weeks Left:</strong>
+          12.0
+        </p>
+
+        <p class="healthy">
+          Status: Healthy
+        </p>
+      </div>
+    
+    </div>
+
+    <p class="updated">
+      Last updated: Tue Aug 04 2026 18:30:46 GMT-0700 (Pacific Daylight Time)
+    </p>
   </div>
 </body>
 </html>
